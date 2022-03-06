@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#header {
+	text-align: center;
+	margin-top: 50px;
+}
+
+#userForm {
+	float: right;
+}
+
+#userForm ul li {
+	float: left;
+	margin: -20px 20px 0px 0px;
+}
+
+#hrLine {
+	height: 10px;
+	background-color: #ffffff;
+	border: none;
+}

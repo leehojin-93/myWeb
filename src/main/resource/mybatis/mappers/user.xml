@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+<!--
+<resultMap id="resultUser" type="UserVo">
+	<result column="user_no" property="userNo" />
+</resultMap>
+-->
+
+	<!-- 회원가입 -->
+	<insert id="joinUser" parameterType="UserVo">
+	<![CDATA[
+		INSERT INTO users
+		VALUES ( seq_users_no.NEXTVAL, #{userId}, #{userPassword}, #{userName}, sysdate )
+	]]>
+	</insert>
+	
+	<!-- 로그인유저 정보 -->
+	<select id="loginSession" parameterType="UserVo" resultType="UserVo">
+	<![CDATA[
+		SELECT userNo, userName
+		FROM users
+		WHERE userId = #{userId} AND userPassword = #{userPassword}
+	]]>
+	</select>
+	
+	<!-- id 중복체크 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+	<![CDATA[
+		SELECT COUNT(userId)
+		FROM users
+		WHERE userId = #{id}
+	]]>
+	</select>
+
+</mapper>

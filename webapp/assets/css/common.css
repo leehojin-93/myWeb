@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+body {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+ul, ol {
+	list-style-type: none;
+	float: left;
+	margin-left: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table td {
+	border: 1px solid #fff;
+	text-align: center;
+}
+
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}

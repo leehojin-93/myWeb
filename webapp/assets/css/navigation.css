@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#nav {
+	font-size: 20px;
+}
+
+#nav ul li {
+	float: left;
+	padding: 0px 149px;
+	border-right: 1px solid #ffffff;
+}
+
+#nav ul li.lastLi {
+	border: none;
+}

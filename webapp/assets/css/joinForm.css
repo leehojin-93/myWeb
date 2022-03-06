@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+label {
+	display: inline-block;
+	width: 100px;
+}
+
+#idCheck {
+	margin-left: 5px;
+}
