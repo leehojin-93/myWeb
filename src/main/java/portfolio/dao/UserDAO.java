@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import portfolio.vo.UserVO;
 
-public class userDAO {
+public class UserDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
