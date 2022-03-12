@@ -1,20 +1,18 @@
 package portfolio.vo;
 
-public class UserVo {
+public class UserVO {
 	
 	private int userNo;
 	private String userId;
 	private String userPassword;
 	private String userName;
+	private String userNickname;
+	private String userGender;
+	private String userImage;
 	private String joinDate;
 	
-	public UserVo() {};
-	
-	public UserVo(int userNo, String userName) {
-		this.userNo = userNo;
-		this.userName = userName;
-	}
-	
+	public UserVO() {}
+
 	public int getUserNo() {
 		return userNo;
 	}
@@ -38,13 +36,37 @@ public class UserVo {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-	
+
 	public String getUserName() {
 		return userName;
 	}
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getUserNickname() {
+		return userNickname;
+	}
+
+	public void setUserNickname(String userNickname) {
+		this.userNickname = userNickname;
+	}
+
+	public String getUserGender() {
+		return userGender;
+	}
+
+	public void setUserGender(String userGender) {
+		this.userGender = userGender;
+	}
+
+	public String getUserImage() {
+		return userImage;
+	}
+
+	public void setUserImage(String userImage) {
+		this.userImage = userImage;
 	}
 
 	public String getJoinDate() {
@@ -57,8 +79,9 @@ public class UserVo {
 
 	@Override
 	public String toString() {
-		return "UserVo [userNo=" + userNo + ", userId=" + userId + ", userPassword=" + userPassword + ", userName="
-				+ userName + ", joinDate=" + joinDate + "]";
-	}
+		return "UserVO [userNo=" + userNo + ", userId=" + userId + ", userPassword=" + userPassword + ", userName="
+				+ userName + ", userNickname=" + userNickname + ", userGender=" + userGender + ", userImage="
+				+ userImage + ", joinDate=" + joinDate + "]";
+	};
 	
 }

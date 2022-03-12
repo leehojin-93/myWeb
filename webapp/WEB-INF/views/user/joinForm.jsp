@@ -31,16 +31,21 @@
 	
 	<fieldset id="joinForm">
 		<legend>회원가입</legend>
-		<form action="${pageContext.request.contextPath}/main/joinUser" method="post">
-			<label for="user_id">아이디</label><input id="user_id" type="text" name="userId" placeholder="영문대소문자, 숫자, 언더바(_) 4자리 이상"><button type="button" id="idCheck">중복체크</button><br>
+		<form action="${pageContext.request.contextPath}/main/joinUser" method="post" enctype="multipart/form-data">
+			<label for="user_id">아이디</label><input id="user_id" type="text" name="userId" placeholder="아이디를 입력해주세요"><button type="button" id="idCheck">중복체크</button><br>
 			<label></label><span id="idValidTxt">영문대소문자, 숫자, -, _ 포함 4자리이상 20자리 이하로 입력해주세요</span><br>
 			<label for="user_password">비밀번호</label><input id="user_password" type="password" name="userPassword" placeholder="비밀번호를 입력해주세요"><br>
 			<label></label><span id="pwdValidTxt"></span><br>
-			<label for="user_password2">비밀번호확인</label><input id="user_password2" type="password" name="userPassword2" placeholder="비밀번호를 입력해주세요"><br>
+			<label for="user_password2">비밀번호확인</label><input id="user_password2" type="password" name="userPassword2" placeholder="비밀번호를 확인해주세요"><br>
 			<label></label><span id="passEQpass"></span><br>
 			<label for="user_name">이름</label><input id="user_name" type="text" name="userName" placeholder="이름을 입력해주세요"><br>
+			<br>
+			<label for="user_nickname">별명</label><input id="user_nickname" type="text" name="userNickname" placeholder="별명을 입력해주세요"><br>
 			<label></label><span></span><br>
-			<!-- nickname 추가 DBtable, VO -->
+			<label>성별</label> <input type="radio" id="gender_male" name="userGender" value="male"><label for="gender_male">남</label> <input type="radio" id="gender_female" name="userGender" value="female"><label for="gender_female">여</label><br>
+			<br>
+			<label for="user_image">프로필사진</label><input type="file" id="user_image" name="userImage"><br>
+			<br>
 			<button type="submit" id="btnJoin">회원가입</button>
 		</form>
 	</fieldset>
@@ -53,7 +58,7 @@
 var inputID = $('#user_id');
 var IDpattern = /^[a-zA-Z0-9_-][a-zA-Z0-9_-]{3,20}$/;
 
-inputID.on('keyup', function() {
+inputID.on('keydown', function() {
 	IDpattern.test(inputID.val());
 	console.log(IDpattern.test(inputID.val()));
 	
@@ -126,7 +131,7 @@ $('#btnJoin').on('click', function() {
 var inputPWD = $('#user_password');
 var PWDpattern = /^[A-Z][a-zA-Z0-9_~!@#$%^&*()=+,.<>?/}{-]{7,25}$/;
 
-inputPWD.on('keyup', function() {
+inputPWD.on('keydown', function() {
 	PWDpattern.test(inputPWD.val());
 	console.log(PWDpattern.test(inputPWD.val()));
 	
@@ -140,7 +145,7 @@ inputPWD.on('keyup', function() {
 	/* 비밀번호 확인 */
 var inputPWD2 = $('#user_password2');
 
-inputPWD2.on('keyup', function() {
+inputPWD2.on('keydown', function() {
 	if (inputPWD.val() !== inputPWD2.val()) {
 		$('#passEQpass').empty();
 		$('#passEQpass').text('일치하지 않습니다').css({'color':'#f00', 'font-weight':'bold'});

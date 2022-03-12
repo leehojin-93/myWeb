@@ -3,24 +3,24 @@ package portfolio.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import portfolio.dao.UserDao;
-import portfolio.vo.UserVo;
+import portfolio.dao.UserDAO;
+import portfolio.vo.UserVO;
 
 @Service
 public class UserService {
 	@Autowired
-	private UserDao userDao;
+	private UserDAO userDao;
 
 	// 회원가입 inDB
-	public int joinUser(UserVo userVo) {
+	public int joinUser(UserVO userVo) {
 		int joinUser = userDao.joinUser(userVo);
 		
 		return joinUser;
 	}
 	
 	// 로그인 selectUSER_setSESSION
-	public UserVo loginSession(UserVo userVo) {
-		UserVo loginSession = userDao.loginSession(userVo);
+	public UserVO loginSession(UserVO userVo) {
+		UserVO loginSession = userDao.loginSession(userVo);
 		
 		return loginSession;
 	}

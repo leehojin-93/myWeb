@@ -1,6 +1,6 @@
 package portfolio.vo;
 
-public class BoardVo {
+public class BoardVO {
 	private int boardNo;
 	private String boardTitle;
 	private String boardContext;
@@ -10,7 +10,7 @@ public class BoardVo {
 	private int writeUserNo;
 	private String userName;
 	
-	public BoardVo() {}
+	public BoardVO() {}
 
 	public int getBoardNo() {
 		return boardNo;

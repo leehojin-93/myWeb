@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import portfolio.service.BoardService;
 import portfolio.service.UserService;
-import portfolio.vo.BoardVo;
-import portfolio.vo.UserVo;
+import portfolio.vo.BoardVO;
+import portfolio.vo.UserVO;
 
 @Controller
 @RequestMapping(value = "/main", method = {RequestMethod.GET, RequestMethod.POST})
@@ -40,10 +40,12 @@ public class PortfolioController {
 	
 	// 회원가입 inDB
 	@RequestMapping(value = "/joinUser")
-	public String join(@ModelAttribute UserVo userVo) {
-		int joinUser = userService.joinUser(userVo);
-		
-		return "/user/loginForm";
+	public String join(@ModelAttribute UserVO userVo) {
+		System.out.println(userVo);
+//		int joinUser = userService.joinUser(userVo);
+//		
+//		return "/user/loginForm";
+		return "";
 	}
 	
 	// 로그인 페이지
@@ -55,8 +57,8 @@ public class PortfolioController {
 	// 로그인 selectUSER_setSESSION
 	@ResponseBody
 	@RequestMapping(value = "/login")
-	public UserVo login(@ModelAttribute UserVo userVo, HttpSession session) {
-		UserVo loginSession = userService.loginSession(userVo);
+	public UserVO login(@ModelAttribute UserVO userVo, HttpSession session) {
+		UserVO loginSession = userService.loginSession(userVo);
 			if (loginSession != null)
 			session.setAttribute("loginSession", loginSession);
 
@@ -75,7 +77,7 @@ public class PortfolioController {
 	// 게시판 페이지
 	@RequestMapping(value = "/board")
 	public String board(Model model) {
-		List<BoardVo> boardList = boardService.boardList();
+		List<BoardVO> boardList = boardService.boardList();
 		
 		model.addAttribute("boardList", boardList);
 		
@@ -90,7 +92,7 @@ public class PortfolioController {
 	
 	// 게시글 작성 inDB
 	@RequestMapping(value = "/boardWrite")
-	public String boardWrite(@ModelAttribute BoardVo boardVo, @RequestParam("userNo") int writeUserNo) {
+	public String boardWrite(@ModelAttribute BoardVO boardVo, @RequestParam("userNo") int writeUserNo) {
 		boardVo.setWriteUserNo(writeUserNo);
 		
 		int boardWrite = boardService.boardWrite(boardVo);

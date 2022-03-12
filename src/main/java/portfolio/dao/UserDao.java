@@ -4,23 +4,23 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import portfolio.vo.UserVo;
+import portfolio.vo.UserVO;
 
 @Repository
-public class UserDao {
+public class UserDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
 	// 회원가입 inDB
-	public int joinUser(UserVo userVo) {
+	public int joinUser(UserVO userVo) {
 		int joinUser = sqlSession.insert("user.joinUser", userVo);
 		
 		return joinUser;
 	}
 	
 	// 로그인 selectUSER_setSESSION
-	public UserVo loginSession(UserVo userVo) {
-		UserVo loginSession = sqlSession.selectOne("user.loginSession", userVo);
+	public UserVO loginSession(UserVO userVo) {
+		UserVO loginSession = sqlSession.selectOne("user.loginSession", userVo);
 		
 		return loginSession;
 	}
