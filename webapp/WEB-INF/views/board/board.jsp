@@ -51,10 +51,10 @@
 	<div id="divBtnWrite">
 	<c:choose>
 		<c:when test="${ empty loginSession }">
-		<a href="${pageContext.request.contextPath}/main/loginForm"><button>로그인하고 글쓰기</button></a>
+		<a href="${pageContext.request.contextPath}/user/loginForm"><button>로그인하고 글쓰기</button></a>
 		</c:when>
 		<c:otherwise>
-		<a href="${pageContext.request.contextPath}/main/boardWriteForm"><button>글쓰기</button></a>
+		<a href="${pageContext.request.contextPath}/board/boardWriteForm"><button>글쓰기</button></a>
 		</c:otherwise>
 	</c:choose>
 	</div>

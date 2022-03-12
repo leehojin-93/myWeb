@@ -22,6 +22,7 @@ public class BoardController {
 	// 게시판 페이지
 	@RequestMapping(value = "/list")
 	public String board(Model model) {
+		System.out.println("왔니");
 		List<BoardVO> boardList = boardService.boardList();
 		
 		model.addAttribute("boardList", boardList);

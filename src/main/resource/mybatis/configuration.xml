@@ -13,8 +13,8 @@
 
         <!-- Alias 설정 -->
         <typeAliases>
-                <typeAlias alias="UserVo" type="portfolio.vo.UserVo" />
-                <typeAlias alias="BoardVo" type="portfolio.vo.BoardVo" />
+                <typeAlias alias="UserVO" type="portfolio.vo.UserVO" />
+                <typeAlias alias="BoardVO" type="portfolio.vo.BoardVO" />
         </typeAliases>
 
         <!-- mappers 경로 설정 -->

@@ -5,12 +5,12 @@
 <mapper namespace="board">
 
 <!--
-<resultMap id="resultBoard" type="BoardVo">
+<resultMap id="resultBoard" type="BoardVO">
 	<result column="board_no" property="boardNo" />
 </resultMap>
 -->
 
-	<select id="boardList" resultType="BoardVo">
+	<select id="boardList" resultType="BoardVO">
 	<![CDATA[
 		SELECT b.boardNo, b.boardTitle, u.userName, b.boardHit, b.boardRegDate, b.boardModDate, b.writeUserNo
 		FROM board b LEFT OUTER JOIN users u ON b.writeUserNo = u.userNo
@@ -18,7 +18,7 @@
 	]]>
 	</select>
 
-	<insert id="boardWrite" parameterType="BoardVo">
+	<insert id="boardWrite" parameterType="BoardVO">
 	<![CDATA[
 		INSERT INTO board
 		VALUES ( seq_board_no.NEXTVAL, #{boardTitle}, #{boardContext}, 0, sysdate, sysdate, #{writeUserNo} )

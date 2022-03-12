@@ -5,13 +5,13 @@
 <mapper namespace="user">
 
 <!--
-<resultMap id="resultUser" type="UserVo">
+<resultMap id="resultUser" type="UserVO">
 	<result column="user_no" property="userNo" />
 </resultMap>
 -->
 
 	<!-- 회원가입 -->
-	<insert id="joinUser" parameterType="UserVo">
+	<insert id="joinUser" parameterType="UserVO">
 	<![CDATA[
 		INSERT INTO users
 		VALUES ( seq_users_no.NEXTVAL, #{userId}, #{userPassword}, #{userName}, sysdate )
@@ -19,7 +19,7 @@
 	</insert>
 	
 	<!-- 로그인유저 정보 -->
-	<select id="loginSession" parameterType="UserVo" resultType="UserVo">
+	<select id="loginSession" parameterType="UserVO" resultType="UserVO">
 	<![CDATA[
 		SELECT userNo, userName
 		FROM users
