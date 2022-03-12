@@ -17,7 +17,8 @@
 
 	<fieldset>
 		<legend>게시글 작성</legend>
-		<form action="${pageContext.request.contextPath}/main/boardWrite?userNo=${loginSession.userNo}" method="post">
+		<form action="${pageContext.request.contextPath}/board/boardWrite" method="post">
+			<input type="hidden" name="userNo" value="${loginSession.userNo}">
 			<label for="boardTitle">제목: </label> <input type="text" id="boardTitle" name="boardTitle">
 			<label for="boardContext">내용: </label> <textarea id="boardContext" name="boardContext"></textarea>
 			<button type="submit">글쓰기</button>

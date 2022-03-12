@@ -31,7 +31,7 @@
 	
 	<fieldset id="joinForm">
 		<legend>회원가입</legend>
-		<form action="${pageContext.request.contextPath}/main/joinUser" method="post" enctype="multipart/form-data">
+		<form action="${pageContext.request.contextPath}/user/joinUser" method="post" enctype="multipart/form-data">
 			<label for="user_id">아이디</label><input id="user_id" type="text" name="userId" placeholder="아이디를 입력해주세요"><button type="button" id="idCheck">중복체크</button><br>
 			<label></label><span id="idValidTxt">영문대소문자, 숫자, -, _ 포함 4자리이상 20자리 이하로 입력해주세요</span><br>
 			<label for="user_password">비밀번호</label><input id="user_password" type="password" name="userPassword" placeholder="비밀번호를 입력해주세요"><br>
